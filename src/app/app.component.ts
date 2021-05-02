@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { LinkService } from "./services/link/link.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
-  title = 'sho-ten-app';
+export class AppComponent implements OnInit {
+  constructor(private linkService: LinkService) {}
+
+  ngOnInit() {
+    this.linkService.apiStatus().subscribe((res) => {
+      console.log(res);
+    });
+  }
 }
