@@ -14,4 +14,8 @@ export class AppComponent implements OnInit {
       console.log(res);
     });
   }
+
+  dynamicText() {
+    return "https://google.com";
+  }
 }
