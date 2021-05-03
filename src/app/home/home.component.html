@@ -24,12 +24,27 @@
       </button>
     </mat-grid-tile></mat-grid-list
   >
-  <!--
-  <div [cdkCopyToClipboard]="dynamicText()">Copy Text</div>
 
-  <button mat-flat-button color="primary" (click)="createShortUrl()">
-    Test
-  </button> -->
+  <div *ngIf="isSuccesful">
+    <h2>Your short link is</h2>
+    <br />
+
+    <div
+      [cdkCopyToClipboard]="copyToClipBoard()"
+      style="
+        cursor: pointer;
+        font-size: 24px;
+        background-color: lightblue;
+        height: 36px;
+        padding: 12px;
+      "
+    >
+      <span style="padding: 6px">{{ url }}</span>
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >content_copy</mat-icon
+      >
+    </div>
+  </div>
 </div>
 
 <div class="spinner" *ngIf="isLoading">

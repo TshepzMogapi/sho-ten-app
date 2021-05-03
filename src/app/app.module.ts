@@ -11,6 +11,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatIconModule } from "@angular/material/icon";
 import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from "./home/home.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -40,6 +41,7 @@ import { FormsModule } from "@angular/forms";
     MatInputModule,
     MatGridListModule,
     MatProgressSpinnerModule,
+    MatIconModule,
   ],
   providers: [LinkService],
   bootstrap: [AppComponent],

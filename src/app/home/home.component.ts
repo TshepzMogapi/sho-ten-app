@@ -9,26 +9,29 @@ import { LinkService } from "../services/link/link.service";
 export class HomeComponent implements OnInit {
   isLoading = false;
   originalLink: string;
+  isSuccesful = false;
+  url: string;
   constructor(private linkService: LinkService) {}
 
-  ngOnInit() {
-    this.linkService.apiStatus().subscribe((res) => {
-      console.log(res);
-    });
-  }
+  ngOnInit() {}
 
   createShortUrl() {
     this.isLoading = true;
 
     this.linkService
       .createShortUrl({ link: this.originalLink })
-      .subscribe((res) => {
+      .subscribe((res: any) => {
         this.isLoading = false;
         console.log(res);
+
+        if (res.success) {
+          this.isSuccesful = true;
+          this.url = res.body.url;
+        }
       });
   }
 
-  dynamicText() {
-    return "https://google.com";
+  copyToClipBoard() {
+    return this.url;
   }
 }
