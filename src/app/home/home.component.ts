@@ -7,6 +7,8 @@ import { LinkService } from "../services/link/link.service";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  isLoading = false;
+  originalLink: string;
   constructor(private linkService: LinkService) {}
 
   ngOnInit() {
@@ -16,9 +18,14 @@ export class HomeComponent implements OnInit {
   }
 
   createShortUrl() {
-    this.linkService.createShortUrl({ link: "test.com" }).subscribe((res) => {
-      console.log(res);
-    });
+    this.isLoading = true;
+
+    this.linkService
+      .createShortUrl({ link: this.originalLink })
+      .subscribe((res) => {
+        this.isLoading = false;
+        console.log(res);
+      });
   }
 
   dynamicText() {

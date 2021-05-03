@@ -15,6 +15,9 @@ import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from "./home/home.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AnalyticsComponent } from "./analytics/analytics.component";
+import { RedirectComponent } from "./redirect/redirect.component";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,10 +25,13 @@ import { AnalyticsComponent } from "./analytics/analytics.component";
     HeaderComponent,
     HomeComponent,
     AnalyticsComponent,
+    RedirectComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    CommonModule,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ClipboardModule,

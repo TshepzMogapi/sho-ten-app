@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { throwError } from "rxjs";
@@ -12,7 +12,7 @@ export class LinkService {
 
   createShortUrl(linkDto) {
     return this.http
-      .post(`${environment.apiUrl}/links`, {
+      .post(`${environment.apiUrl}links`, {
         link: linkDto.link,
       })
       .pipe(
@@ -26,9 +26,18 @@ export class LinkService {
       );
   }
 
-  apiStatus() {
-    console.log(environment.apiUrl);
+  getOriginalLink(urlId) {
+    return this.http.get(`${environment.apiUrl}links?` + "url=" + urlId).pipe(
+      map((response) => {
+        return response;
+      }),
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
 
+  apiStatus() {
     return this.http.get(`${environment.apiUrl}`).pipe(
       map((response) => {
         return response;
