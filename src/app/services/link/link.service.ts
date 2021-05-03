@@ -10,8 +10,20 @@ import { throwError } from "rxjs";
 export class LinkService {
   constructor(private http: HttpClient) {}
 
-  createShortUrl(link) {
-    // return
+  createShortUrl(linkDto) {
+    return this.http
+      .post(`${environment.apiUrl}/links`, {
+        link: linkDto.link,
+      })
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError((error) => {
+          console.log(error);
+          return throwError(error);
+        })
+      );
   }
 
   apiStatus() {

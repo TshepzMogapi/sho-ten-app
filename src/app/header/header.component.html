@@ -1,1 +1,18 @@
-<p>header works!</p>
+<mat-toolbar class="navbar app-header">
+  <div>
+    <a
+      routerLink="/home"
+      style="display: flex; align-items: center; justify-content: center"
+    >
+      Shorten
+    </a>
+  </div>
+
+  <div style="margin-right: 50px">
+    <a [routerLink]="'/home'" routerLinkActive="router-link-active"> Home </a>
+    <a [routerLink]="'/analytics'" routerLinkActive="router-link-active">
+      Analytics
+    </a>
+    <a> </a>
+  </div>
+</mat-toolbar>

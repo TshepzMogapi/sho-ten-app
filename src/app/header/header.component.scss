@@ -1,0 +1,23 @@
+.app-header {
+  background: #dd3cfe;
+  color: white;
+  position: fixed;
+  top: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: 0px 8px;
+}
+
+.navbar {
+  justify-content: space-between;
+}
+
+.router-link-active {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+// #61ce70;
