@@ -37,6 +37,19 @@ export class LinkService {
     );
   }
 
+  getLinkAnalytics(urlId) {
+    return this.http
+      .get(`${environment.apiUrl}links/analytics?` + "url=" + urlId)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError((error) => {
+          return throwError(error);
+        })
+      );
+  }
+
   apiStatus() {
     return this.http.get(`${environment.apiUrl}`).pipe(
       map((response) => {

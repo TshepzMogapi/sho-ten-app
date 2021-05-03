@@ -7,7 +7,7 @@ import { RedirectComponent } from "./redirect/redirect.component";
 const appRoutes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
-  { path: "analytics", component: AnalyticsComponent },
+  { path: "analytics/:id", component: AnalyticsComponent },
   { path: ":id", component: RedirectComponent },
 ];
 
