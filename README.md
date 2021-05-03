@@ -1,7 +1,15 @@
-# ShoTenApp
+# Shorten Url App
 
-## Development server
+## Prerequisites
 
-## Build
+- [NodeJs](https://nodejs.org/en/)
+- [Angular CLI](https://cli.angular.io/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## To run the app
+
+```sh
+$ git clone https://github.com/TshepzMogapi/sho-ten-app.git
+$ cd sho-ten-app
+$ npm install
+$ ng serve
+```
