@@ -8,6 +8,7 @@ import { LinkService } from "../services/link/link.service";
   styleUrls: ["./redirect.component.scss"],
 })
 export class RedirectComponent implements OnInit {
+  isInValid = false;
   constructor(private router: Router, private linkService: LinkService) {}
 
   ngOnInit(): void {
@@ -15,6 +16,10 @@ export class RedirectComponent implements OnInit {
     this.linkService.getOriginalLink(urlId).subscribe((res: any) => {
       if (res.success) {
         window.location.href = res.body.link;
+      } else {
+        console.log(res);
+
+        this.isInValid = true;
       }
     });
   }
